@@ -1,0 +1,91 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Larger middle column */
+    gap: 10px;
+  }
+  
+  .grid-item {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  /* Order of items for larger screens */
+  .grid-item:nth-child(1) { order: 1; }
+  .grid-item:nth-child(2) { order: 2; } /* Middle item */
+  .grid-item:nth-child(3) { order: 3; }
+  
+  /* For medium screens, make it a 2-column grid */
+  @media screen and (max-width: 900px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    /* Change order for medium screens */
+    .grid-item:nth-child(2) { order: 1; } /* Middle item on top */
+    .grid-item:nth-child(1) { order: 2; }
+    .grid-item:nth-child(3) { order: 3; }
+  }
+  
+  /* For small screens, make it a single column */
+  @media screen and (max-width: 700px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  
+    /* The order will be the same as in the medium screen but now stacked */
+  }
+  
+  .blog-post {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-post h1 {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .date, .author {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  section h2 {
+    color: #4a7c59;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  section p {
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .author-bio {
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .author-bio h3 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .author-bio p {
+    font-style: italic;
+    color: #666;
+  }
+  
+  
