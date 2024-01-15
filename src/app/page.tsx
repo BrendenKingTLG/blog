@@ -29,6 +29,7 @@ export default function Home() {
           </div>
         </div>
         <div className="h-fit pb-10 pt-8">
+          <h2 className=" text-center text-3xl font-bold pt-2 pb-8">Contact</h2>
           <form action="#" method="POST" className="">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
