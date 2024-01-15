@@ -9,23 +9,9 @@ export default function Home() {
     <div>
       <Navbar />
       <main className="flex flex-col items-center justify-between bg-white">
-        <div className=" w-screen h-fit">
-          <div className="relative isolate px-6 lg:px-8 home-hero home-hero-background">
-            <div className="mx-auto max-w-2xl py-20">
-              <div className="text-center">
-                <h1 className=" text-8xl font-bold text-white">
-                  Learn the secrets of the software
-                </h1>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <a
-                    href="#"
-                    className="rounded-md bg-red-600 px-3.5 py-2.5 text-2xl font-semibold text-white"
-                  >
-                    Get started
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div className="">
+          <div className="relative isolate  w-screen px-6 lg:px-8 home-hero home-hero-background">
+            <div className="mx-auto max-w-2xl py-20"></div>
           </div>
         </div>
         <div className="h-fit pb-10 pt-8">
