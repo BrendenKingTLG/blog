@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function Index() {
   const pathname = usePathname();
+  const [show, setShow] = React.useState(false);
 
   return (
     <div>
@@ -77,7 +78,10 @@ export default function Index() {
               </svg>
             </Link>
           )}
-          <button className="btn btn-ghost btn-circle">
+          <button
+            className="btn btn-ghost btn-circle"
+            onClick={() => setShow(!show)}
+          >
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,9 +97,54 @@ export default function Index() {
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
               </svg>
+
               <span className="badge badge-xs badge-error indicator-item"></span>
             </div>
           </button>
+          {show && (
+            <div
+              id="dropdown"
+              className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-12 right-1"
+            >
+              <ul
+                className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownDefaultButton"
+              >
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Earnings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Sign out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
