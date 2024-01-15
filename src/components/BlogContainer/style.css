@@ -1,11 +1,11 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Larger middle column */
+    grid-template-columns: 1fr 10fr 1fr; /* Larger middle column */
     gap: 10px;
   }
   
   .grid-item {
-    padding: 20px;
+    padding: 10px;
     text-align: left;
   }
   

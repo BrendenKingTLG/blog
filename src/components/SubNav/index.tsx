@@ -7,13 +7,13 @@ export default function index() {
       <div className="flex justify-center items-center pt-1">
         <ul className="menu menu-horizontal">
           <li>
-            <a>Item 1</a>
+            <a className=" underline">Home</a>
           </li>
           <li>
-            <a>Parent</a>
+            <a>Development</a>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Operations</a>
           </li>
         </ul>
       </div>
