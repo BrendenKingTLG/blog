@@ -1,6 +1,12 @@
+"use client";
 import React from "react";
 import "./style.css";
-export default function index() {
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
+export default function Index() {
+  const pathname = usePathname();
+
   return (
     <div>
       <div className="navbar bg-base-200">
@@ -43,25 +49,54 @@ export default function index() {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-3xl title">ScriptScribes</a>
+          <Link className="btn btn-ghost text-3xl title" href={"/"}>
+            ScriptScribes
+          </Link>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
+          {/* <div className="flex items-center bg-white rounded-2xl w-60 h-10 px-3">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="input input-bordered input-sm w-full max-w-xs border-0 focus:outline-none"
+            />
+            <button className="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div> */}
+          {pathname === "/search" ? (
+            <div></div>
+          ) : (
+            <Link className="btn btn-ghost btn-circle" href="/search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </Link>
+          )}
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg

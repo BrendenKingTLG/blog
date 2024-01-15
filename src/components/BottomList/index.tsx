@@ -5,6 +5,7 @@ export default function index() {
       <h4 className="px-3">Latest</h4>
       <div className="divider m-0"></div>
       <div className="flex flex-row gap-5 overflow-x-auto py-2">
+        <div className="px-2"></div>
         <div className="Greetings person, How Are You">
           <div className="card w-60 shadow-lg border-2 border-gray-400">
             <div className="card-body">
@@ -96,6 +97,7 @@ export default function index() {
             </div>
           </div>
         </div>
+        <div className="px-2"></div>
       </div>
     </div>
   );

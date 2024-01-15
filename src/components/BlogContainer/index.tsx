@@ -102,61 +102,7 @@ export default function Blog() {
           </footer>
         </div>
       </div>
-      <div className="grid-item">
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-      </div>
+      <div className="grid-item"></div>
     </div>
   );
 }

@@ -7,16 +7,18 @@ interface BlogProps {
 }
 export default function index({ title, date, author, summary }: BlogProps) {
   return (
-    <div className="blog">
+    <div>
       <div className="divider m-0"></div>
-      <div className="card w-60">
-        <div className="card-body">
-          <h2 className="card-title text-xs">{title}</h2>
-          <p className="text-xs">{summary}</p>
-          <div className="card-actions justify-end">
-            <p className="text-xs">
-              {date} * {author}
-            </p>
+      <div className="blog w-11/12 flex justify-center">
+        <div className="card">
+          <div className="card-body">
+            <h2 className="card-title text-lg">{title}</h2>
+            <p className="text-lg">{summary}</p>
+            <div className="card-actions justify-end">
+              <p className="text-lg">
+                {date} * {author}
+              </p>
+            </div>
           </div>
         </div>
       </div>
