@@ -27,10 +27,25 @@ main {
   font-family: 'UnifrakturCook', cursive;
 }
 
-.home-hero-background {
-  background-image: url('/images/hero-main.png');
-  background-size: cover;
-  background-position: center;
-  height: 35em;
+.splash-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d, #48c6ef, #6f86d6);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

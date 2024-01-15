@@ -63,6 +63,8 @@ export default function Home() {
         />
       </main>
       <BottomList />
+      <BottomList />
+
       <Footer />
     </div>
   );

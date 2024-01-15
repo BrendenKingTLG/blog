@@ -48,46 +48,7 @@ const FirstBlogPost = () => {
 export default function Blog() {
   return (
     <div className="grid-container">
-      <div className="grid-item">
-        <BlogPreview
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogPreview
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogPreview
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-
-        <BlogPreview
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-        <BlogPreview
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <br />
-      </div>
+      <div className="grid-item"></div>
       <div className="grid-item grid-item-large">
         <div className="blog-post">
           <FirstBlogPost />
