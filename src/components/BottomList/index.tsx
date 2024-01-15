@@ -4,7 +4,7 @@ export default function index() {
     <div className="py-5 px-3">
       <h4 className="px-3">Latest</h4>
       <div className="divider m-0"></div>
-      <div className="flex flex-row gap-5 overflow-x-auto py-2">
+      <div className="flex flex-row gap-5 overflow-x-auto pt-4 pb-5">
         <div className="px-2"></div>
         <div className="Greetings person, How Are You">
           <div className="card w-60 shadow-lg border-2 border-gray-400">

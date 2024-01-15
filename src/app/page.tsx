@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Navbar />
       <main className="flex min-h-screen flex-col items-center justify-between bg-white">
-        <SubNav />
+        {/* <SubNav /> */}
         <Blog />
       </main>
       <BottomList />
