@@ -37,7 +37,7 @@ const config: Config = {
                   
           "warning": "#ffffff",
                   
-          "error": "#ffffff",
+          "error": "#FF0000",
         },
       },
     ],

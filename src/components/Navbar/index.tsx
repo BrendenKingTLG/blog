@@ -3,7 +3,7 @@ import "./style.css";
 export default function index() {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-200">
         <div className="navbar-start">
           <div className="dropdown lg:hidden">
             <div
@@ -28,16 +28,16 @@ export default function index() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-lg"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52 "
             >
               <li>
-                <a>Homepage</a>
+                <a className="text-lg">Homepage</a>
               </li>
               <li>
-                <a>Portfolio</a>
+                <a className="text-lg">Portfolio</a>
               </li>
               <li>
-                <a>About</a>
+                <a className="text-lg">About</a>
               </li>
             </ul>
           </div>
@@ -78,7 +78,7 @@ export default function index() {
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
               </svg>
-              <span className="badge badge-xs badge-primary indicator-item"></span>
+              <span className="badge badge-xs badge-error indicator-item"></span>
             </div>
           </button>
         </div>
