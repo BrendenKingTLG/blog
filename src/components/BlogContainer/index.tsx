@@ -31,7 +31,7 @@ const FirstBlogPost = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className=" text-center py-80">Loading...</p>;
   if (error) return <p>Error loading post: {error}</p>;
   if (!post) return <p>Post not found.</p>;
 

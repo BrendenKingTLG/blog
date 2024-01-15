@@ -18,3 +18,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+main {
+  min-height: 100vh;
+}
+
+.home-hero {
+  font-family: 'UnifrakturCook', cursive;
+}
+
+.home-hero-background {
+  background-image: url('/images/hero-book.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.home-hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: -1; /* Set z-index to -1 */
+}
