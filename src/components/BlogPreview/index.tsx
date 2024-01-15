@@ -1,6 +1,14 @@
 import React from "react";
 import "./style.css";
-export default function index({ title, date, author, summary }) {
+
+interface BlogProps {
+  title: string;
+  date: string;
+  author: string;
+  summary: string;
+}
+
+export default function index({ title, date, author, summary }: BlogProps) {
   return (
     <div className="card w-60 h-60 bg-base-100 shadow-xl blog">
       <figure>

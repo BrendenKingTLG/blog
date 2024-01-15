@@ -10,7 +10,7 @@ interface BlogTable {
 }
 
 interface Database {
-  blog: BlogTable; // Add other tables as needed
+  blog_posts: BlogTable; // Add other tables as needed
 }
 // Initialize the database connection
 
