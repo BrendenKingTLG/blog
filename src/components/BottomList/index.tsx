@@ -1,7 +1,7 @@
 import React from "react";
 export default function index() {
   return (
-    <div className="py-5 px-3">
+    <div className="py-5">
       <h4 className="px-3">Latest</h4>
       <div className="divider m-0"></div>
       <div className="flex flex-row gap-5 overflow-x-auto pt-4 pb-5">
