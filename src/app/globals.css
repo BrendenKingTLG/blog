@@ -45,7 +45,7 @@ main {
   body,
   main,
   :root {
-    padding-left: 10em;
-    padding-right: 10em;
+    margin-left: 6em;
+    margin-right: 6em;
   }
 }

@@ -1,27 +1,41 @@
 /* Base CSS for smaller screens */
 .grid-layout {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Adjust minmax for skinnier cards */
-  gap: 20px;
+  grid-template-columns: auto;
+  gap: 2em; /* No gap between cards */
+  justify-content: center;
 }
-
 .nyt-card {
+  background-color: #f8f8f8; /* Light paper-like background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   padding: 20px;
+  height: 300px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Times New Roman", Times, serif; /* Newspaper-like font */
+  color: #333; /* Darker text color for contrast */
+  border-radius: 5px; /* Slightly rounded corners */
+  overflow: hidden;
 }
 
 .card-title {
-  font-size: 1.2em;
+  font-size: 1.4em; /* Slightly larger and bolder title */
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .card-body p {
   font-size: 1em;
-  line-height: 1.4;
+  line-height: 1.6; /* Increased line height for readability */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .card-actions p {
@@ -29,10 +43,11 @@
   color: #666;
 }
 
-/* Media query for large screens */
+/* Media query adjustments as before */
 @media screen and (min-width: 1024px) {
   .grid-layout {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
   }
 
   .nyt-card {

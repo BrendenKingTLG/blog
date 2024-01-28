@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BottomList from "@/components/BottomList";
-import BlogList from "@/components/BlogList";
+
 export default function Home() {
   return (
     <div>
@@ -37,33 +36,7 @@ export default function Home() {
           <div className="badge">default</div>
           <div className="badge">default</div>
         </div>
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
-        <BlogList
-          title="Embracing the Future: The Rise of AI in Software Development"
-          date="01/2024"
-          author="TechTrekker"
-          summary="This article discusses the impact of AI in software development..."
-        />
       </main>
-      <BottomList />
-      <BottomList />
 
       <Footer />
     </div>

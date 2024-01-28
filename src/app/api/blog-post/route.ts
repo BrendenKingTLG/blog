@@ -4,15 +4,33 @@ import { NextRequest, NextResponse } from 'next/server';
 // Function to handle GET requests
 export async function GET(request: NextRequest) {
   try {
-    const posts = await db
-      .selectFrom("blog_posts")
-      .select(["title", "content", "author", "post_date"])
-      .orderBy("id", "asc")
-      .limit(1)
-      .execute();
+    // Extract the ID from the URL, if present
+    const url = new URL(request.url);
+    const id = url.searchParams.get('id');
 
-    // Correct way to return a JSON response
-    return new NextResponse(JSON.stringify(posts[0]), {
+    let response;
+
+    if (id) {
+      // If an ID is provided, fetch the specific post
+      const post = await db
+        .selectFrom("blog_posts")
+        .select(["id", "title", "content", "author", "post_date"])
+        .where("id", "=", parseInt(id))
+        .execute();
+
+      response = post.length > 0 ? post[0] : { message: "Post not found" };
+    } else {
+      // If no ID, fetch all posts
+      const posts = await db
+        .selectFrom("blog_posts")
+        .select(["id", "title", "content", "author", "post_date"])
+        .orderBy("id", "asc")
+        .execute();
+
+      response = posts;
+    }
+
+    return new NextResponse(JSON.stringify(response), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
@@ -20,8 +38,6 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error(error);
-
-    // Correct way to return an error response
     return new NextResponse(JSON.stringify({ message: "Server error" }), {
       status: 500,
       headers: {
