@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
+
 import "./style.css";
 type BlogPost = {
   id: string | number;
@@ -83,8 +85,9 @@ export default function Home() {
             <div className="flex flex-wrap">
               {Array.isArray(searchResults) &&
                 searchResults.map((post) => (
-                  <div
+                  <Link
                     key={post.id}
+                    href={`/blog/${post.id}`}
                     className="card w-96 bg-base-100 shadow-xl m-4"
                   >
                     <div className="nyt-card">
@@ -101,7 +104,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
           )}
