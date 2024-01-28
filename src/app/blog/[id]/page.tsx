@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlogPost from "@/components/BlogContainer";
+import BottomList from "@/components/BottomList";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -51,6 +52,7 @@ const FirstBlogPost = () => {
       <main className="flex flex-col items-center justify-between bg-white">
         <BlogPost post={post} />
       </main>
+      <BottomList />
       <Footer />
     </div>
   );

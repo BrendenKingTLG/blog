@@ -52,6 +52,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2em;
+  padding-top: 2em;
 }
 
 .blog-post h1 {

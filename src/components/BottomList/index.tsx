@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./style.css";
 
@@ -10,12 +12,36 @@ type BlogPost = {
   post_date: string;
 };
 
-type IndexProps = {
-  posts?: BlogPost[];
-};
+export default function Index() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]); // Corrected this line
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export default function Index({ posts }: IndexProps) {
-  if (!posts || posts.length === 0) {
+  useEffect(() => {
+    fetch("/api/blog-post")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched data:", data); // Log to check the structure of fetched data
+        setBlogPosts(data); // Make sure data is an array
+      })
+      .catch((error) => {
+        console.error("Fetching error:", error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading blog posts: {error}</p>;
+
+  if (!blogPosts || blogPosts.length === 0) {
     return <p>No blog posts available.</p>;
   }
 
@@ -34,7 +60,7 @@ export default function Index({ posts }: IndexProps) {
       <h4 className="px-3">Latest</h4>
       <div className="divider m-0"></div>
       <div className="grid-layout pt-4 pb-5">
-        {posts.map((post, index) => (
+        {blogPosts.map((post, index) => (
           <Link key={post.id} href={`/blog/${post.id}`}>
             <div className="nyt-card">
               <div className="card-body">
@@ -42,7 +68,6 @@ export default function Index({ posts }: IndexProps) {
                   {truncateContent(post.title, 20)}
                 </h2>
                 <p>{truncateContent(post.content, 80)}</p>{" "}
-                {/* Truncated content */}
                 <div className="card-actions">
                   <p>
                     {new Date(post.post_date).toLocaleDateString()} *{" "}
