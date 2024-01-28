@@ -1,0 +1,14 @@
+.nyt-card {
+  background-color: #f8f8f8; /* Light paper-like background */
+  border: 1px solid #ddd;
+  padding: 20px;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Times New Roman", Times, serif; /* Newspaper-like font */
+  color: #333; /* Darker text color for contrast */
+  border-radius: 5px; /* Slightly rounded corners */
+  overflow: hidden;
+}

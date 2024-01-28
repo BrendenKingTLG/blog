@@ -1,18 +1,63 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+"use client";
+import React, { useState } from "react";
+import "./style.css";
+type BlogPost = {
+  id: string | number;
+  title: string;
+  content: string;
+  author: string;
+  post_date: string;
+};
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<BlogPost[]>([]);
+
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const performSearch = async () => {
+    try {
+      const results = await performActualSearch(searchQuery);
+      setSearchResults(results);
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+      setSearchResults([]);
+    }
+  };
+
+  const performActualSearch = async (query: string) => {
+    const response = await fetch(
+      `/api/blog-post?title=${encodeURIComponent(query)}`
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return (await response.json()) as BlogPost[];
+  };
+
+  const truncateContent = (content: string, maxLength: number) => {
+    // Remove HTML tags for length calculation
+    const strippedContent = content.replace(/<[^>]*>?/gm, "");
+
+    // Truncate and add ellipsis if content is longer than maxLength
+    return strippedContent.length > maxLength
+      ? strippedContent.substring(0, maxLength) + "..."
+      : strippedContent;
+  };
   return (
     <div>
-      <Navbar />
       <main className="flex min-h-screen flex-col items-center bg-white py-4">
         <div className="flex items-center justify-center bg-white rounded-2xl w-80 h-10 border-2">
           <input
             type="text"
             placeholder="Search..."
             className="input input-bordered input-sm w-full max-w-xs border-0 focus:outline-none"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
           />
-          <button className="btn btn-ghost btn-circle">
+          <button className="btn btn-ghost btn-circle" onClick={performSearch}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -29,16 +74,39 @@ export default function Home() {
             </svg>
           </button>
         </div>
-        <div className="flex justify-center items-center text-left p-4">
-          <p>Results for: </p>
+        <div className="flex flex-col justify-center items-center text-left p-4">
+          <p>Results for: {searchQuery}</p>
           <div className="px-1"></div>
-          <div className="badge">default</div>
-          <div className="badge">default</div>
-          <div className="badge">default</div>
+          {searchResults.length === 0 ? (
+            <p></p>
+          ) : (
+            <div className="flex flex-wrap">
+              {Array.isArray(searchResults) &&
+                searchResults.map((post) => (
+                  <div
+                    key={post.id}
+                    className="card w-96 bg-base-100 shadow-xl m-4"
+                  >
+                    <div className="nyt-card">
+                      <div className="card-body">
+                        <h2 className="card-title">
+                          {truncateContent(post.title, 20)}
+                        </h2>
+                        <p>{truncateContent(post.content, 80)}</p>{" "}
+                        <div className="card-actions">
+                          <p>
+                            {new Date(post.post_date).toLocaleDateString()} *{" "}
+                            {post.author}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
