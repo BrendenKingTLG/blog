@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function Index() {
   const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ export default function Index() {
       if (response.ok) {
         // Email sent successfully, you can handle success here
         console.log("Email sent successfully");
+        setSent(true);
       } else {
         // Handle error when the email fails to send
         console.error("Error sending email");
@@ -56,7 +58,12 @@ export default function Index() {
                     />
                   </div>
                   <div className="form-control mt-6">
-                    <button type="submit" className="btn btn-error text-white">
+                    <button
+                      type="submit"
+                      className={
+                        "btn btn-error text-white" + sent ? " btn-disabled" : ""
+                      }
+                    >
                       Subscribe
                     </button>
                   </div>

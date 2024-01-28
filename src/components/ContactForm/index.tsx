@@ -16,7 +16,7 @@ export default function Index() {
     message: "",
     contact: true,
   });
-
+  const [contacted, setContacted] = useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -44,11 +44,10 @@ export default function Index() {
       })
       .then((data) => {
         console.log("Success:", data);
-        alert("Email sent successfully!");
+        setContacted(true);
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("Error sending email.");
       });
   };
 
@@ -118,7 +117,10 @@ export default function Index() {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="btn btn-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className={
+              "btn btn-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" +
+              (contacted ? " btn-disabled" : "")
+            }
           >
             Submit
           </button>
