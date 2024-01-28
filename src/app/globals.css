@@ -6,10 +6,8 @@
   overflow-x: hidden;
 }
 
-
 body {
-    overflow-x: hidden;
-
+  overflow-x: hidden;
 }
 
 main {
@@ -17,7 +15,7 @@ main {
 }
 
 .home-hero {
-  font-family: 'UnifrakturCook', cursive;
+  font-family: "UnifrakturCook", cursive;
 }
 
 .splash-screen {
@@ -40,5 +38,14 @@ main {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media screen and (min-aspect-ratio: 16/9) {
+  body,
+  main,
+  :root {
+    padding-left: 10em;
+    padding-right: 10em;
   }
 }

@@ -1,0 +1,41 @@
+/* Base CSS for smaller screens */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Adjust minmax for skinnier cards */
+  gap: 20px;
+}
+
+.nyt-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.card-actions p {
+  font-size: 0.8em;
+  color: #666;
+}
+
+/* Media query for large screens */
+@media screen and (min-width: 1024px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+  }
+
+  .nyt-card {
+    /* Additional styles for large screens if needed */
+  }
+}
