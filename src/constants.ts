@@ -1,7 +1,7 @@
 export const welcomeMessage = () => 
 `Hello,
 
-I am thrilled to welcome to my blog subscription! 🎉
+I am thrilled to welcome you to my blog subscription! 🎉
 
 Thank you for connecting.
 

@@ -9,8 +9,12 @@ interface BlogTable {
   post_date: string;
 }
 
+interface SubTable {
+  email: string;
+}
 interface Database {
   blog_posts: BlogTable; // Add other tables as needed
+  subscribers: SubTable;
 }
 // Initialize the database connection
 

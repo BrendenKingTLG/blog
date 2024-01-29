@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
+
 export default function Index() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [resMessage, setResMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,23 +18,23 @@ export default function Index() {
       },
       body: JSON.stringify({ email, contact: false }),
     })
-      .then((response) => {
-        if (response.ok) {
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status === "success") {
+          setResMessage(data.message);
           // Email sent successfully, you can handle success here
-          console.log("Email sent successfully");
           setShowPopup(true); // Show the pop-up
 
           // Set a timeout to hide the pop-up after 2 seconds
           const timeoutId = setTimeout(() => {
             setShowPopup(false);
           }, 2000);
+          setSent(true);
         } else {
           // Handle error when the email fails to send
           console.error("Error sending email");
         }
-      })
-      .then(() => {
-        setSent(true);
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -43,7 +45,7 @@ export default function Index() {
     <div className="w-screen h-fit splash-screen">
       {showPopup && (
         <div className="popup flex flex-row justify-center items-center gap-1 rounded-md">
-          <p className="text-sm">sent</p>
+          <p className="text-sm">{resMessage}</p>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"

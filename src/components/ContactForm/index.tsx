@@ -61,7 +61,7 @@ export default function Index() {
   return (
     <div className="flex justify-center items-center h-fit w-full">
       {showPopup && (
-        <div className="popup flex flex-row justify-center items-center gap-1">
+        <div className="popup flex flex-row justify-center items-center gap-1 rounded-md">
           <p className="text-sm">sent</p>
           <div>
             <svg

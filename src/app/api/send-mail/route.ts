@@ -1,6 +1,7 @@
 // pages/api/send-email.ts
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import db from "@/db"; // Adjust the import path based on your db.js location
 import { welcomeMessage, contactMessage } from '@/constants';
 export async function POST(req: Request) {
     try {
@@ -34,18 +35,32 @@ export async function POST(req: Request) {
 
       } else {
         const { email } = data;
+        const existingEmails = await db
+          .selectFrom("subscribers")
+          .select(["email"])
+          .where("email", "=", email)
+          .execute();
+
+        if (existingEmails.length === 0) {
+            await db
+                .insertInto("subscribers")
+                .values({ email: email })
+                .execute();
+            console.log(`Email ${email} inserted.`);
+            let mailOptions = {
+              from: process.env.NM_USER,
+              to: email,
+              subject: 'Blog',
+              text: welcomeMessage(),
+            };
     
-        let mailOptions = {
-          from: process.env.NM_USER,
-          to: email,
-          subject: 'Blog',
-          text: welcomeMessage(),
-        };
+            await transporter.sendMail(mailOptions);
+            return NextResponse.json({ message: 'Sent', status: "success" });
 
-        await transporter.sendMail(mailOptions);
-      }
+          }
+          return NextResponse.json({ message: 'Already Subscribed', status: "success"  });
 
-      return NextResponse.json({ message: 'Email sent successfully' });
+        }
     } catch (error) {
       console.error(error);
       return NextResponse.json({ message: 'Error sending email' });
