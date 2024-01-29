@@ -1,4 +1,4 @@
-.nyt-card {
+.n-card {
   background-color: #f8f8f8; /* Light paper-like background */
   border: 1px solid #ddd;
   padding: 20px;
@@ -11,4 +11,8 @@
   color: #333; /* Darker text color for contrast */
   border-radius: 5px; /* Slightly rounded corners */
   overflow: hidden;
+}
+
+.home-link {
+  font-family: "UnifrakturCook", cursive;
 }
